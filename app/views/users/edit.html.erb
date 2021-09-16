@@ -1,0 +1,33 @@
+<p id="notice"></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 mx-auto">
+        <% if @user.errors.any? %>
+          <%= @user.errors.count %>errors prohibited this obj from being saved
+          <% @user.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        <% end %>
+        <h2>User info</h2>
+        <%= form_with model: @user, local:true do |f| %>
+        <label>Name</label>
+        <div>
+          <%= f.text_field :name %>
+        </div>
+        <label for="inputImage">Image</label>
+        <div>
+          <%= f.attachment_field :profile_image %>
+        </div>
+        <label>introduction</label>
+        <div>
+          <%= f.text_area :introduction %>
+        </div>
+        <div>
+        <%= f.submit "Update User",class:"btn btn-secondary" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</p>
+
