@@ -1,7 +1,7 @@
 <p id="notice">
   <div class="container">
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
         <h2>Sign up</h2>
 
         <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
@@ -9,12 +9,12 @@
 
           <div class="field">
             <%= f.label :name %><br />
-            <%= f.text_field :name, autofocus: true,autocomplete: "name" %>
+            <%= f.text_field :name, autofocus: true,autocomplete: "name", class: "mb-3" %>
           </div>
 
           <div class="field">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "mb-3" %>
           </div>
 
           <div class="field">
@@ -22,15 +22,15 @@
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
+            <%= f.password_field :password,  autocomplete: "off", class: "password mb-3" %>
           </div>
           <div class="field">
             <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password"  %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "password_confirm mb-3" %>
           </div>
 
           <div class="actions">
-            <%= f.submit "Sign up", class:"btn btn-success" %>
+            <%= f.submit "Sign up", class:"btn btn-sm btn-success mb-3" %>
           </div>
         <% end %>
         <%= render "devise/shared/links" %>
