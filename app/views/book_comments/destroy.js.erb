@@ -1,1 +1,2 @@
-$("#comments_index").html("<%= escape_javascript(render 'books/comment', {book: @book, book_comments: @book_comments}) %>")
+$("#comments_index").html("<%= escape_javascript(render 'book_comments/comment', {book: @book,book_comment:BookComment.new}) %>")
+$("textarea").val("")

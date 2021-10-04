@@ -10,7 +10,7 @@
         <h2>Book detail</h2>
         <table class="table">
           <thred>
-            <tr>
+            <tr id="book_<%= @book.id %>">
               <td><%= link_to attachment_image_tag(@user,:profile_image, :fill, 50, 50, fallback: "no_image.jpg"), user_path %></br>
                 <%= link_to @user.name, user_path(@user) %></td>
               <td><%= link_to @book.title, book_path(@book) %></td>
@@ -32,7 +32,7 @@
         </table>
         <table class="table">
           <thead id="comments_index">
-             <%= render "books/comment", book: @book,book_comment: @book_comment %>
+             <%= render "book_comments/comment", book: @book,book_comment: @book_comment %>
           </thead>
         </table>
         </div>
