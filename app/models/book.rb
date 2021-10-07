@@ -9,4 +9,5 @@ class Book < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
   has_many :book_comments, dependent: :destroy
+  has_many :favorite_users, through: :favorites,source: :user
 end

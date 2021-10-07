@@ -34,6 +34,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @books = Book.all
     @user = current_user
+    @books = Book.includes(:favorite_users).sort{|a,b| b.favorite_users.size <=> a.favorite_users.size}
   end
 
   def show
@@ -41,6 +42,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user = @book.user
     @book_comment = BookComment.new
+   
   end
 
   def destroy
